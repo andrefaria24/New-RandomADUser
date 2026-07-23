@@ -21,7 +21,8 @@ function New-RandomADUser {
     function Get-RandomPassword {
         $passwordChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
         $passwordLength = 16
-        $password = -join ($passwordChars | Get-Random -Count $passwordLength)
+        $passwordCharArray = $passwordChars.ToCharArray()
+        $password = -join (1..$passwordLength | ForEach-Object { $passwordCharArray | Get-Random })
         return $password
     }
 
