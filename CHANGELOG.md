@@ -1,3 +1,7 @@
+## v1.0.3 - July 2026
+
+* Removed .git folder from package
+
 ## v1.0.2 - July 2026
 
 * Fixed password generation to randomize individual characters. ([Issue #1](https://github.com/andrefaria24/adusergenerator/issues/1))
