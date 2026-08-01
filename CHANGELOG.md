@@ -1,3 +1,9 @@
+## v1.1.0 - July 2026
+
+* Converted the bundled first-name and last-name datasets from UTF-16 LE to UTF-8.
+* Cached the name datasets when the module is imported instead of reading them for every generated user.
+* Kept the cached name data private by disabling variable exports.
+
 ## v1.0.3 - July 2026
 
 * Removed .git folder from package

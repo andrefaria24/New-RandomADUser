@@ -1,5 +1,20 @@
 #Requires -Modules ActiveDirectory
 
+$firstNamesPath = Join-Path -Path $PSScriptRoot -ChildPath 'files\firstnames.txt'
+$lastNamesPath = Join-Path -Path $PSScriptRoot -ChildPath 'files\lastnames.txt'
+
+try {
+    $script:FirstNames = @(Get-Content -LiteralPath $firstNamesPath -Encoding UTF8 -ErrorAction Stop)
+    $script:LastNames = @(Get-Content -LiteralPath $lastNamesPath -Encoding UTF8 -ErrorAction Stop)
+}
+catch {
+    throw "Failed to load the bundled name data: $($_.Exception.Message)"
+}
+
+if ($script:FirstNames.Count -eq 0 -or $script:LastNames.Count -eq 0) {
+    throw 'The bundled name data must contain at least one first name and one last name.'
+}
+
 # Function to generate random Active Directory users
 function New-RandomADUser {
     [CmdletBinding(SupportsShouldProcess)]
@@ -28,10 +43,8 @@ function New-RandomADUser {
 
     # Function to generate a random name
     function Get-RandomName {
-        $firstNames = Get-Content -Path "$PSScriptRoot\files\firstnames.txt"
-        $lastNames = Get-Content -Path "$PSScriptRoot\files\lastnames.txt"
-        $firstName = Get-Random -InputObject $firstNames
-        $lastName = Get-Random -InputObject $lastNames
+        $firstName = Get-Random -InputObject $script:FirstNames
+        $lastName = Get-Random -InputObject $script:LastNames
         return @{ FirstName = $firstName; LastName = $lastName }
     }
 

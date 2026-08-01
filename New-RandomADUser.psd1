@@ -1,6 +1,6 @@
 @{
     RootModule = 'New-RandomADUser.psm1'
-    ModuleVersion = '1.0.3'
+    ModuleVersion = '1.1.0'
     GUID = '532d9fab-bb7a-4471-9b29-c3c4dc7f46bd'
     Author = 'Andre Faria'
     Copyright         = '(c) Andre Faria. All rights reserved.'
@@ -8,7 +8,7 @@
     PowerShellVersion = '5.1'
     FunctionsToExport = 'New-RandomADUser'
     CmdletsToExport = @()
-    VariablesToExport = '*'
+    VariablesToExport = @()
     AliasesToExport = @()
 
     PrivateData       = @{
