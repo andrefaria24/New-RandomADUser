@@ -1,6 +1,6 @@
 @{
     RootModule = 'New-RandomADUser.psm1'
-    ModuleVersion = '1.1.0'
+    ModuleVersion = '1.2.1'
     GUID = '532d9fab-bb7a-4471-9b29-c3c4dc7f46bd'
     Author = 'Andre Faria'
     Copyright         = '(c) Andre Faria. All rights reserved.'

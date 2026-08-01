@@ -1,3 +1,17 @@
+## v1.2.1 - August 2026
+
+* Limited generated `sAMAccountName` values to 20 characters.
+* Retried username and common-name collisions with numeric suffixes while preserving the 20-character limit.
+* Prevented collisions from reducing the number of users requested with `Count`.
+* Made non-collision creation errors terminating so completed runs do not silently create fewer users than requested.
+
+## v1.2.0 - August 2026
+
+* Replaced `Get-Random` password generation with .NET cryptographic random-number generation.
+* Guaranteed that generated passwords contain lowercase, uppercase, numeric, and special characters.
+* Randomized password character positions with an unbiased shuffle.
+* Removed plaintext passwords from verbose output.
+
 ## v1.1.0 - July 2026
 
 * Converted the bundled first-name and last-name datasets from UTF-16 LE to UTF-8.

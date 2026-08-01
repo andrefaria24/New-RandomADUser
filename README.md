@@ -23,8 +23,12 @@ This PowerShell module generates random Active Directory users. It is primarily 
 
 # Features
 
-* Generates users with random first and last names and 16-character passwords.
+* Generates users with random first and last names and cryptographically secure 16-character passwords.
+* Guarantees that every generated password contains lowercase, uppercase, numeric, and special characters.
+* Keeps plaintext passwords out of verbose output.
 * Loads the bundled UTF-8 name datasets once and caches them for the lifetime of the module.
+* Limits usernames to the Active Directory `sAMAccountName` maximum of 20 characters.
+* Resolves username and common-name collisions with numeric suffixes without reducing the requested user count.
 * Ability to specify the desired target Organizational Unit (OU).
 * Supports generating multiple users and adding a prefix to their usernames.
 
